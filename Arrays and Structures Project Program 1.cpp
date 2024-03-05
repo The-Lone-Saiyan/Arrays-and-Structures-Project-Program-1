@@ -5,30 +5,38 @@
 
 using namespace std;
 
+const int MaxRows = 10;
+const int Columns = 5;
+const string FileName = "Runner Data.txt";
+
 // Reads the names of runners from the file.
 // Pre-Condition: Finds existing file and reads and stores names of runners.
 // Post-Condition: Holds the names for the next function to use.
-void RunnerNames(int RunnerData[][7], int RunnerNames);
+int RunnerArray(string Names[], double Miles[][Columns], int MaxRows);
 
 int main()
 {
-	string RunnerNames[5];
-	string RunnerData[5][7];
-
+	char RunnerNames[5];
+	int RunnerData[5][7];
+	RunnerArray(RunnerData, RunnerNames);
 	
 
 	return 0;
 }
 
-void RunnerNames(int RunnerData[][7], int RunnerNames)
+int RunnerArray(string Names[], double Miles[][Columns], int MaxRows)
 {
 	ifstream myiFile;
+	int Rows = 0;
 
 	myiFile.open("Runner Data.txt");
 
-	for (i = 0; i < 5; i++)
+	if (!myiFile.is_open())
+	{
+		cout << "Could not open file.\n";
 
+		return -1;
+	}
 
-
-		
+	inFile >> Names[Rows];
 }
