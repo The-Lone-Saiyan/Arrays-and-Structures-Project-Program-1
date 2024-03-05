@@ -16,9 +16,20 @@ int RunnerArray(string Names[], double Miles[][Columns], int MaxRows);
 
 int main()
 {
-	char RunnerNames[5];
-	int RunnerData[5][7];
-	RunnerArray(RunnerData, RunnerNames);
+	string RunnerNames[MaxRows];
+	double RunnerData[MaxRows][Columns];
+	int NumberofRecords;
+	NumberofRecords = RunnerArray(RunnerNames, RunnerData, MaxRows);
+
+	for (int i = 0; i < NumberofRecords; i++)
+	{
+		cout << RunnerNames[i] << " ";
+		for (int j = 0; j < Columns; j++)
+		{
+			cout << RunnerData[i][j] << " ";
+		}
+		cout << endl;
+	}
 	
 
 	return 0;
@@ -29,7 +40,7 @@ int RunnerArray(string Names[], double Miles[][Columns], int MaxRows)
 	ifstream myiFile;
 	int Rows = 0;
 
-	myiFile.open("Runner Data.txt");
+	myiFile.open(FileName);
 
 	if (!myiFile.is_open())
 	{
@@ -38,5 +49,17 @@ int RunnerArray(string Names[], double Miles[][Columns], int MaxRows)
 		return -1;
 	}
 
-	inFile >> Names[Rows];
+	myiFile >> Names[Rows];
+	while (!myiFile.eof() && !(Rows >= MaxRows))
+	{
+		for (int i = 0; i < Columns; i++)
+		{
+			myiFile >> Miles[Rows][i];
+		}
+		Rows++;
+		myiFile >> Names[Rows];
+	}
+	myiFile.close();
+
+	return Rows;
 }
