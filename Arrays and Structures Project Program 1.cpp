@@ -14,6 +14,11 @@ const string FileName = "Runner Data.txt";
 // Post-Condition: Holds the names for the next function to use.
 int RunnerArray(string Names[], double Miles[][Columns], int MaxRows);
 
+// Calculates the average miles for each runner.
+// Pre-Condition: Receives the raw miles for each runner and number of runners.
+// Post-Condition: Average miles is calculated for each runner and put at the end of the row for that runner.
+void RunnersAverages(double Miles[][Columns], int NumberofRows);
+
 int main()
 {
 	string RunnerNames[MaxRows];
@@ -62,4 +67,18 @@ int RunnerArray(string Names[], double Miles[][Columns], int MaxRows)
 	myiFile.close();
 
 	return Rows;
+}
+
+void RunnersAverages(double Miles[][Columns], int NumberofRows)
+{
+	double Sum = 0;
+	for (int i = 0; i < NumberofRows; i++)
+	{
+		Sum = 0;
+		for (int j = 0; j < Columns; j++)
+		{
+			Sum += Miles[i][j];
+			Miles[i][Columns] = Sum / Columns;
+		}
+	}
 }
