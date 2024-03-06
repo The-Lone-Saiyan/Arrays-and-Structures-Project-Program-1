@@ -25,6 +25,7 @@ int main()
 	double RunnerData[MaxRows][Columns];
 	int NumberofRecords;
 	NumberofRecords = RunnerArray(RunnerNames, RunnerData, MaxRows);
+	RunnersAverages(RunnerData, NumberofRecords);
 
 	for (int i = 0; i < NumberofRecords; i++)
 	{
@@ -78,7 +79,7 @@ void RunnersAverages(double Miles[][Columns], int NumberofRows)
 		for (int j = 0; j < Columns; j++)
 		{
 			Sum += Miles[i][j];
-			Miles[i][Columns] = Sum / Columns;
+			Miles[i][Columns - 1] = Sum / Columns;
 		}
 	}
 }
