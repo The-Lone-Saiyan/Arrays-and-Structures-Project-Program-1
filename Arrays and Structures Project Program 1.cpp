@@ -17,15 +17,16 @@ int RunnerArray(string Names[], double Miles[][Columns], int MaxRows);
 // Calculates the average miles for each runner.
 // Pre-Condition: Receives the raw miles for each runner and number of runners.
 // Post-Condition: Average miles is calculated for each runner and put at the end of the row for that runner.
-void RunnersAverages(double Miles[][Columns], int NumberofRows);
+void RunnersAverages(double Miles[][Columns], double Averages[], int NumberofRows);
 
 int main()
 {
 	string RunnerNames[MaxRows];
 	double RunnerData[MaxRows][Columns];
+	double Averages[MaxRows];
 	int NumberofRecords;
 	NumberofRecords = RunnerArray(RunnerNames, RunnerData, MaxRows);
-	RunnersAverages(RunnerData, NumberofRecords);
+	RunnersAverages(RunnerData, Averages, NumberofRecords);
 
 	for (int i = 0; i < NumberofRecords; i++)
 	{
@@ -70,7 +71,7 @@ int RunnerArray(string Names[], double Miles[][Columns], int MaxRows)
 	return Rows;
 }
 
-void RunnersAverages(double Miles[][Columns], int NumberofRows)
+void RunnersAverages(double Miles[][Columns], double Averages[], int NumberofRows)
 {
 	double Sum = 0;
 	for (int i = 0; i < NumberofRows; i++)
@@ -79,7 +80,7 @@ void RunnersAverages(double Miles[][Columns], int NumberofRows)
 		for (int j = 0; j < Columns; j++)
 		{
 			Sum += Miles[i][j];
-			Miles[i][Columns - 1] = Sum / Columns;
+			Averages[i] = Sum / Columns;
 		}
 	}
 }
