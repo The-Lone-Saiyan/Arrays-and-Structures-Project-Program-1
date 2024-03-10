@@ -36,6 +36,7 @@ int main()
 			cout << RunnerData[i][j] << " ";
 		}
 		cout << endl;
+		
 	}
 	
 
@@ -49,7 +50,7 @@ int RunnerArray(string Names[], double Miles[][Columns], int MaxRows)
 
 	myiFile.open(FileName);
 
-	if (!myiFile.is_open())
+	if(!myiFile.is_open())
 	{
 		cout << "Could not open file.\n";
 
@@ -57,7 +58,7 @@ int RunnerArray(string Names[], double Miles[][Columns], int MaxRows)
 	}
 
 	myiFile >> Names[Rows];
-	while (!myiFile.eof() && !(Rows >= MaxRows))
+	while(!myiFile.eof() && !(Rows >= MaxRows))
 	{
 		for (int i = 0; i < Columns; i++)
 		{
