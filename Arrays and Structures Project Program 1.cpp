@@ -14,15 +14,17 @@ const string FileName = "Runner Data.txt";
 // Post-Condition: Holds the names for the next function to use.
 int RunnerArray(string Names[], double Miles[][Columns], int MaxRows);
 
-// Calculates the average miles for each runner.
+// Calculates the total and average miles for each runner.
 // Pre-Condition: Receives the raw miles for each runner and number of runners.
-// Post-Condition: Average miles is calculated for each runner and put at the end of the row for that runner.
-void RunnersAverages(double Miles[][Columns], double Averages[], double Total[], int NumberofRows);
+// Post-Condition: Total and average miles is calculated for each runner and put at the end of the row for that runner.
+void RunnersAveragesandTotal(double Miles[][Columns], double Averages[], double Total[], int NumberofRows);
 
 // Outputs on the screen the Names, Miles, Total Miles, and Average Miles for each runner.
 // Pre-Condition:
 // Post-Condition:
 void Output(string RunnerNames[], double RunnerData[][Columns], double Total[], double Averages[], int NumberofRecords);
+
+void Labels(string RunnerNames[], double Miles[][Columns], double Averages[], double Total[], int NumberofRecords);
 
 int main()
 {
@@ -32,20 +34,9 @@ int main()
 	double Total[MaxRows];
 	int NumberofRecords;
 	NumberofRecords = RunnerArray(RunnerNames, RunnerData, MaxRows);
-	RunnersAverages(RunnerData, Total, Averages, NumberofRecords);
+	RunnersAveragesandTotal(RunnerData, Total, Averages, NumberofRecords);
 	Output(RunnerNames, RunnerData, Total, Averages, NumberofRecords);
-
-	/*for (int i = 0; i < NumberofRecords; i++)
-	{
-		cout << RunnerNames[i] << " ";
-		for (int j = 0; j < Columns; j++)
-		{
-			cout << RunnerData[i][j] << " ";
-		}
-		cout << Total[i] << " " << Averages[i];
-		cout << endl;
-	}*/
-	
+	Labels(RunnerNames, RunnerData, Total, Averages, NumberofRecords);
 
 	return 0;
 }
@@ -79,7 +70,7 @@ int RunnerArray(string Names[], double Miles[][Columns], int MaxRows)
 	return Rows;
 }
 
-void RunnersAverages(double Miles[][Columns], double Total[], double Averages[], int NumberofRows)
+void RunnersAveragesandTotal(double Miles[][Columns], double Total[], double Averages[], int NumberofRows)
 {
 	double Sum = 0;
 	for (int i = 0; i < NumberofRows; i++)
@@ -106,4 +97,12 @@ void Output(string RunnerNames[], double RunnerData[][Columns], double Total[], 
 		cout << Total[i] << " " << Averages[i];
 		cout << endl;
 	}
+}
+
+void Labels(string RunnerNames[], double Miles[][Columns], double Averages[], double Total[], int NumberofRecords)
+{
+	cout << fixed << setprecision(2) << showpoint;
+	cout << "Runner     Total   Average" << endl;
+	for (int i = 0; i < NumberofRecords; i++)
+		cout << setw(10) << left << RunnerNames[i] << setw(6) << right << Averages[i] << setw(10) << Total[i] << endl;
 }
