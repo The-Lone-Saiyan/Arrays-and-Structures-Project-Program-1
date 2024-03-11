@@ -19,14 +19,18 @@ int RunnerArray(string Names[], double Miles[][Columns], int MaxRows);
 // Post-Condition: Average miles is calculated for each runner and put at the end of the row for that runner.
 void RunnersAverages(double Miles[][Columns], double Averages[], int NumberofRows);
 
+void RunnerTotalMiles(double Miles[][Columns], double Total[], int NumberofRows);
+
 int main()
 {
 	string RunnerNames[MaxRows];
 	double RunnerData[MaxRows][Columns];
 	double Averages[MaxRows];
+	double Total[MaxRows];
 	int NumberofRecords;
 	NumberofRecords = RunnerArray(RunnerNames, RunnerData, MaxRows);
 	RunnersAverages(RunnerData, Averages, NumberofRecords);
+	//RunnerTotalMiles(RunnerData, Total, NumberofRecords);
 
 	for (int i = 0; i < NumberofRecords; i++)
 	{
@@ -35,8 +39,8 @@ int main()
 		{
 			cout << RunnerData[i][j] << " ";
 		}
+		cout << Averages;
 		cout << endl;
-		
 	}
 	
 
@@ -80,8 +84,22 @@ void RunnersAverages(double Miles[][Columns], double Averages[], int NumberofRow
 		Sum = 0;
 		for (int j = 0; j < Columns; j++)
 		{
-			Sum += Miles[i][j];
+			Sum = Miles[i][j] + Miles[i][j];
 			Averages[i] = Sum / Columns;
+		}
+	}
+}
+
+void RunnerTotalMiles(double Miles[][Columns], double Total[], int NumberofRows)
+{
+	double Sum = 0;
+	for (int i = 0; i < NumberofRows; i++)
+	{
+		Sum = 0;
+		for (int j = 0; j < Columns; j++)
+		{
+			Sum = Miles[i][j] + Miles[i][j];
+			Total[i] = Sum;
 		}
 	}
 }
