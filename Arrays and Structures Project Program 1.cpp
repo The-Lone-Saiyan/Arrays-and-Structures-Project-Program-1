@@ -6,7 +6,7 @@
 using namespace std;
 
 const int MaxRows = 10;
-const int Columns = 5;
+const int Columns = 7;
 const string FileName = "Runner Data.txt";
 
 // Reads the names of runners from the file.
