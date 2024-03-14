@@ -104,5 +104,11 @@ void Labels(string RunnerNames[], double Miles[][Columns], double Averages[], do
 	cout << fixed << setprecision(2) << showpoint;
 	cout << "Runner     Total   Average" << endl;
 	for (int i = 0; i < NumberofRecords; i++)
-		cout << setw(10) << left << RunnerNames[i] << setw(6) << right << Averages[i] << setw(10) << Total[i] << endl;
+	{
+		for (int j = 0; j < NumberofRecords; j++)
+		{
+			cout << setw(10) << left << RunnerNames[i] << setw(6) << right << Miles[i][j] << setw(5) << right << Averages[i] << setw(10) << Total[i] << endl;
+			//Added "Miles", displays runner's miles but not formatting correctly???
+		}
+	}
 }
