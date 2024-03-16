@@ -35,7 +35,7 @@ int main()
 	int NumberofRecords;
 	NumberofRecords = RunnerArray(RunnerNames, RunnerData, MaxRows);
 	RunnersAveragesandTotal(RunnerData, Total, Averages, NumberofRecords);
-	Output(RunnerNames, RunnerData, Total, Averages, NumberofRecords);
+	//Output(RunnerNames, RunnerData, Total, Averages, NumberofRecords);
 	Labels(RunnerNames, RunnerData, Total, Averages, NumberofRecords);
 
 	return 0;
@@ -99,16 +99,17 @@ void Output(string RunnerNames[], double RunnerData[][Columns], double Total[], 
 	}
 }
 
-void Labels(string RunnerNames[], double Miles[][Columns], double Averages[], double Total[], int NumberofRecords)
+void Labels(string RunnerNames[], double RunnerData[][Columns], double Total[], double Averages[], int NumberofRecords)
 {
-	cout << fixed << setprecision(2) << showpoint;
-	cout << "Runner     Total   Average" << endl;
+	//cout << fixed << setprecision(2) << showpoint;
+	cout << "Runner   Day 1  Day 2  Day 3  Day 4  Day 5  Day 6  Day 7  Total  Average" << endl;
 	for (int i = 0; i < NumberofRecords; i++)
 	{
-		for (int j = 0; j < NumberofRecords; j++)
+		cout << left << setw(10) <<  RunnerNames[i];
+		for (int j = 0; j < Columns; j++)
 		{
-			cout << setw(10) << left << RunnerNames[i] << setw(6) << right << Miles[i][j] << setw(5) << right << Averages[i] << setw(10) << Total[i] << endl;
-			//Added "Miles", displays runner's miles but not formatting correctly???
+			cout << left << setw(7) << RunnerData[i][j];
 		}
+			cout << left << setw(7) << Total[i] << left << setw(7) << Averages[i] << endl;
 	}
 }
