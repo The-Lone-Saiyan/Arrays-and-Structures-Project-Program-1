@@ -102,14 +102,14 @@ void Output(string RunnerNames[], double RunnerData[][Columns], double Total[], 
 void Labels(string RunnerNames[], double RunnerData[][Columns], double Total[], double Averages[], int NumberofRecords)
 {
 	//cout << fixed << setprecision(2) << showpoint;
-	cout << "Runner   Day 1  Day 2  Day 3  Day 4  Day 5  Day 6  Day 7  Total  Average" << endl;
+	cout << "Runner  Sunday  Monday Tuesday Wednesday Thursday Friday Saturday Total  Average" << endl;
 	for (int i = 0; i < NumberofRecords; i++)
 	{
 		cout << left << setw(10) <<  RunnerNames[i];
 		for (int j = 0; j < Columns; j++)
 		{
-			cout << left << setw(7) << RunnerData[i][j];
+			cout << left << setw(8.5) << RunnerData[i][j];
 		}
-			cout << left << setw(7) << Total[i] << left << setw(7) << Averages[i] << endl;
+			cout << left << setw(8.5) << Total[i] << left << setw(7) << Averages[i] << endl;
 	}
 }
