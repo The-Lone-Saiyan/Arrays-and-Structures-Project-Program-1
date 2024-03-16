@@ -84,7 +84,7 @@ void RunnersAveragesandTotal(double Miles[][Columns], double Total[], double Ave
 }
 
 void LabelsandOutput(string RunnerNames[], double RunnerData[][Columns], double Total[], double Averages[], int NumberofRecords)
-{
+{ 
 	cout << fixed << setprecision(2);
 	cout << "Runner  Sunday  Monday Tuesday Wednesday Thursday Friday Saturday Total  Average" << endl;
 	for (int i = 0; i < NumberofRecords; i++)
