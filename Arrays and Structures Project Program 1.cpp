@@ -22,9 +22,8 @@ void RunnersAveragesandTotal(double Miles[][Columns], double Averages[], double 
 // Outputs on the screen the Names, Miles, Total Miles, and Average Miles for each runner.
 // Pre-Condition:
 // Post-Condition:
-void Output(string RunnerNames[], double RunnerData[][Columns], double Total[], double Averages[], int NumberofRecords);
 
-void Labels(string RunnerNames[], double Miles[][Columns], double Averages[], double Total[], int NumberofRecords);
+void LabelsandOutput(string RunnerNames[], double Miles[][Columns], double Averages[], double Total[], int NumberofRecords);
 
 int main()
 {
@@ -35,8 +34,7 @@ int main()
 	int NumberofRecords;
 	NumberofRecords = RunnerArray(RunnerNames, RunnerData, MaxRows);
 	RunnersAveragesandTotal(RunnerData, Total, Averages, NumberofRecords);
-	//Output(RunnerNames, RunnerData, Total, Averages, NumberofRecords);
-	Labels(RunnerNames, RunnerData, Total, Averages, NumberofRecords);
+	LabelsandOutput(RunnerNames, RunnerData, Total, Averages, NumberofRecords);
 
 	return 0;
 }
@@ -85,23 +83,9 @@ void RunnersAveragesandTotal(double Miles[][Columns], double Total[], double Ave
 	}
 }
 
-void Output(string RunnerNames[], double RunnerData[][Columns], double Total[], double Averages[], int NumberofRecords)
+void LabelsandOutput(string RunnerNames[], double RunnerData[][Columns], double Total[], double Averages[], int NumberofRecords)
 {
-	for (int i = 0; i < NumberofRecords; i++)
-	{
-		cout << RunnerNames[i] << " ";
-		for (int j = 0; j < Columns; j++)
-		{
-			cout << RunnerData[i][j] << " ";
-		}
-		cout << Total[i] << " " << Averages[i];
-		cout << endl;
-	}
-}
-
-void Labels(string RunnerNames[], double RunnerData[][Columns], double Total[], double Averages[], int NumberofRecords)
-{
-	//cout << fixed << setprecision(2) << showpoint;
+	cout << fixed << setprecision(2);
 	cout << "Runner  Sunday  Monday Tuesday Wednesday Thursday Friday Saturday Total  Average" << endl;
 	for (int i = 0; i < NumberofRecords; i++)
 	{
