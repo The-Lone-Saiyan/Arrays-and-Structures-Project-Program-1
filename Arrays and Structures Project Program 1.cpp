@@ -20,8 +20,8 @@ int RunnerArray(string Names[], double Miles[][Columns], int MaxRows);
 void RunnersAveragesandTotal(double Miles[][Columns], double Averages[], double Total[], int NumberofRows);
 
 // Outputs on the screen the Names, Miles, Total Miles, and Average Miles for each runner.
-// Pre-Condition:
-// Post-Condition:
+// Pre-Condition: Checks for Averages and Totals for runners from a previous function.
+// Post-Condition: Outputs the data on each runner on screen with proper formatting and labels.
 
 void LabelsandOutput(string RunnerNames[], double Miles[][Columns], double Averages[], double Total[], int NumberofRecords);
 
